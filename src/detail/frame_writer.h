@@ -6,6 +6,8 @@
 #include <boost/noncopyable.hpp>
 #include <boost/shared_ptr.hpp>
 
+#include <stdint.h> //added stdint header
+
 namespace amqpp
 {
 namespace detail

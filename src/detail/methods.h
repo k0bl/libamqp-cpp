@@ -46,7 +46,9 @@ public:
 template <class T>
 typename T::ptr_t method_cast(const method::ptr_t& m)
 {
-  typename T::ptr_t ret = boost::shared_dynamic_cast<T>(m);
+  //typename T::ptr_t ret = boost::shared_dynamic_cast<T>(m); 
+  //shared_dynamic_cast is deprecated, use dynamic_pointer_cast
+  typename T::ptr_t ret = boost::dynamic_pointer_cast<T>(m);
   if (typename T::ptr_t() == ret)
   {
     throw std::runtime_error("Failure to cast method");

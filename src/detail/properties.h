@@ -6,7 +6,7 @@
 #include <boost/cstdint.hpp>
 #include <boost/noncopyable.hpp>
 #include <boost/shared_ptr.hpp>
-
+#include <stdexcept> //added stdexcept 
 #include <iosfwd>
 
 namespace amqpp
@@ -39,7 +39,9 @@ public:
 template <class T>
 typename T::ptr_t properties_cast(const properties::ptr_t& m)
 {
-  typename T::ptr_t ret = boost::shared_dynamic_cast<T>(m);
+  //typename T::ptr_t ret = boost::shared_dynamic_cast<T>(m); 
+  //shared_dynamic_cast is deprecated, use dynamic_pointer_cast
+  typename T::ptr_t ret = boost::dynamic_pointer_cast<T>(m);
   if (typename T::ptr_t() == ret)
   {
     throw std::runtime_error("Failure to cast properties");

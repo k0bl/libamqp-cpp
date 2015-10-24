@@ -1,5 +1,4 @@
 #include "frame_writer.h"
-
 #include "detail/frame.h"
 #include "detail/wireformat.h"
 
